@@ -1,7 +1,9 @@
 resource "aws_lambda_function" "lambda" {
-  filename      = "${var.name}.zip"
-  function_name = "${var.name}_${var.handler}"
-  role          = "${var.role}"
-  handler       = "${var.name}.${var.handler}"
-  runtime       = "${var.runtime}"
+  source_code_hash = "${base64sha256(file("${var.archive}"))}"
+  filename         = "${var.archive}"
+  function_name    = "${var.name}_${var.handler}"
+  role             = "${var.role}"
+  handler          = "bundle.handler"
+  runtime          = "${var.runtime}"
+  publish          = true
 }

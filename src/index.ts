@@ -1,5 +1,1 @@
-
-
-export const handler = (): void => {
-
-};
+export {handler} from './handler';
