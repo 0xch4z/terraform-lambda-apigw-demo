@@ -26,3 +26,7 @@ variable "region" {
 variable "account_id" {
   description = "AWS account ID"
 }
+
+variable "lambda_arn" {
+  description = "ARN of lambda to integrate"
+}
