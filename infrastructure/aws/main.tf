@@ -54,6 +54,7 @@ module "hello_get" {
   lambda      = "${module.lambda.name}"
   region      = "${var.region}"
   account_id  = "${data.aws_caller_identity.current.account_id}"
+  lambda_arn  = "${module.lambda.arn}"
 }
 
 resource "aws_api_gateway_deployment" "hello_api_deployment" {
